@@ -6,26 +6,57 @@
   <title>Entrar na Live</title>
   <style>
     body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Atma', sans-serif;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 50px;
-      background-color: #f9f9f9;
     }
+
+    input, button {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
     input {
       padding: 10px;
       width: 300px;
       font-size: 16px;
     }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
+  button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  background-color: #7a0909;
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #4a0404, 0 4px 0 #4a0404;
+  transition: all 0.1s ease-in-out;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #9b1111;
+}
+
+button:active {
+  box-shadow: inset 0 4px 4px #4a0404;
+  transform: translateY(2px);
+}
+
   </style>
 </head>
 <body>
-  <h1>Contador de Likes - YouTube</h1>
+  <img src="img/logo.jpg" alt="Logo" class="logo" />
   <p>Insira o ID do vídeo da live:</p>
   <input type="text" id="videoIdInput" placeholder="Ex: dQw4w9WgXcQ" />
   <br />

@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyDsWlWYIgCWc7SN4SZkJIhswcmWXN-l94M'; // Substitua pela sua chave
+const API_KEY = 'AIzaSyB34hJD_bSwgILsK8lgdVJuaPITN7yIW2g'; // Substitua pela sua chave
 const likesElement = document.getElementById('likes');
 const metaElement = document.getElementById('meta');
 const progressBar = document.getElementById('progress-bar');
@@ -6,21 +6,35 @@ const progressBar = document.getElementById('progress-bar');
 let meta = 50;
 let likes = 0;
 const incremento = 50;
+let intervalId = null;
 
 function getVideoIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("videoId");
 }
 
-async function fetchLikes() {
+async function isLive(videoId) {
   try {
-    const videoId = getVideoIdFromURL();
-    if (!videoId) {
-      likesElement.textContent = 'ID inválido';
-      metaElement.textContent = '';
-      return;
-    }
+    const res = await fetch(
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet,liveStreamingDetails&id=${videoId}&key=${API_KEY}`
+    );
+    const data = await res.json();
+    if (!data.items || data.items.length === 0) return false;
 
+    const liveDetails = data.items[0].snippet.liveBroadcastContent;
+    return liveDetails === 'live'; // pode ser 'live', 'none' ou 'upcoming'
+
+  } catch (err) {
+    console.error("Erro ao checar se está ao vivo:", err);
+    return false;
+  }
+}
+
+async function fetchLikes() {
+  const videoId = getVideoIdFromURL();
+  if (!videoId) return;
+
+  try {
     const res = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${API_KEY}`
     );
@@ -32,7 +46,6 @@ async function fetchLikes() {
       meta += incremento;
       likesElement.classList.add('pop-animation');
       metaElement.classList.add('pulse-animation');
-
       setTimeout(() => {
         likesElement.classList.remove('pop-animation');
         metaElement.classList.remove('pulse-animation');
@@ -51,7 +64,6 @@ async function fetchLikes() {
 function updateProgress() {
   const progress = Math.min(likes / meta, 1) * 100;
   progressBar.style.width = `${progress}%`;
-
   if (likes >= meta) {
     progressBar.classList.add('pulse-bar');
     setTimeout(() => {
@@ -60,5 +72,23 @@ function updateProgress() {
   }
 }
 
-setInterval(fetchLikes, 5000);
-fetchLikes();
+async function startIfLive() {
+  const videoId = getVideoIdFromURL();
+  if (!videoId) {
+    likesElement.textContent = 'ID inválido';
+    return;
+  }
+
+  likesElement.textContent = 'Verificando live...';
+  const live = await isLive(videoId);
+
+  if (live) {
+    likesElement.textContent = 'Carregando likes...';
+    fetchLikes();
+    intervalId = setInterval(fetchLikes, 10000); // atualiza a cada 10s
+  } else {
+    likesElement.textContent = 'Live não está ativa';
+  }
+}
+
+startIfLive();
