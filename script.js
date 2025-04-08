@@ -1,5 +1,5 @@
 const API_KEY = 'AIzaSyDsWlWYIgCWc7SN4SZkJIhswcmWXN-l94M'; // Substitua pela sua chave
-const CHANNEL_ID = 'UCZiYbVptd3PVPf4f6eR6UaQ'; // Substitua pelo ID do seu canal
+const CHANNEL_ID = 'UCOfeXQqErsQbDxassRb7rjg'; // Substitua pelo ID do seu canal
 
 const likesElement = document.getElementById('likes');
 const metaElement = document.getElementById('meta');
