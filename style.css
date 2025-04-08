@@ -1,0 +1,157 @@
+body {
+  background: #000;
+  font-family: "Atma", system-ui;
+  font-weight: 100;
+
+}
+
+#lowerthird {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 350px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: white;
+  overflow: visible; /* <--- permite que elementos saiam do container */
+
+}
+
+#progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(270deg, #00f0ff, #ff00c8, #00ff88, #00f0ff);
+  background-size: 600% 600%;
+  animation: shift-border 5s ease infinite;
+  z-index: 0;
+  border-radius: 10px;
+  transition: width 0.4s ease-in-out;
+}
+
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  gap: 12px;
+}
+
+.label {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.count {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.meta {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.animated-outline {
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 12px;
+  background: linear-gradient(270deg, #00f0ff, #ff00c8, #00ff88, #00f0ff);
+  background-size: 600% 600%;
+  z-index: 2;
+  pointer-events: none;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+
+  animation: shift-border 5s ease infinite;
+}
+
+@keyframes shift-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.emoji {
+  display: inline-block;
+  animation: emoji-wave 2s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes emoji-wave {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-10deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-8deg); }
+  80% { transform: rotate(4deg); }
+}
+.emoji-pop-spin {
+  animation: emoji-explode 1s ease-in-out;
+}
+
+@keyframes emoji-explode {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0px #00ff95);
+  }
+  25% {
+    transform: scale(1.4) rotate(15deg);
+    filter: drop-shadow(0 0 5px #00ff95);
+  }
+  50% {
+    transform: scale(1.2) rotate(-10deg);
+    filter: drop-shadow(0 0 10px #00ff95);
+  }
+  75% {
+    transform: scale(1.6) rotate(25deg);
+    filter: drop-shadow(0 0 20px #ffc400);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
+
+.corner {
+  position: absolute;
+  width: 36px; /* ajuste conforme necessário */
+  height: auto;
+  top: -20px;
+  right: 20px;
+  z-index: 3;
+  pointer-events: none; /* para não atrapalhar cliques */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px #00ffff);
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px #00ffff);
+  }
+}
+
+.corner {
+  animation: pulse 2s infinite ease-in-out;
+}
