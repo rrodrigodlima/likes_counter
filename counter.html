@@ -1,33 +1,76 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contador com Progresso</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Entrar na Live</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Atma', sans-serif;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
 
+    input, button {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+  button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  background-color: #7a0909;
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #4a0404, 0 4px 0 #4a0404;
+  transition: all 0.1s ease-in-out;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #9b1111;
+}
+
+button:active {
+  box-shadow: inset 0 4px 4px #4a0404;
+  transform: translateY(2px);
+}
+
+  </style>
 </head>
 <body>
-<div id="lowerthird">
-  <img src="img/sweet.png" class="corner top-right" />
-  <div id="progress-bar"></div>
-  <div class="animated-outline"></div>
-  <div class="content">
-    <span class="label">
-        <span id="like-emoji" class="emoji"><i class="fa-solid fa-thumbs-up"></i></span>
-        Meta de Likes:
-    </span>
-    <span id="likes" class="count">0</span>
-    <span class="label">/</span>
-    <span id="meta" class="meta">50</span>
-  </div>
-</div>
+  <img src="img/logo2.jpg" alt="Logo" class="logo" />
+  <p>lumiuchiha2002@gmail.com</p>
+  <input type="text" id="videoIdInput" placeholder="Ex: dQw4w9WgXcQ" />
+  <br />
+  <!-- <button onclick="irParaContador()">Iniciar</button> -->
 
-
-  <script src="script.js"></script>
+  <!-- <script>
+    function irParaContador() {
+      const videoId = document.getElementById('videoIdInput').value.trim();
+      if (videoId) {
+        window.location.href = `counter.html?videoId=${videoId}`;
+      } else {
+        alert('Por favor, insira um videoId válido.');
+      }
+    }
+  </script> -->
 </body>
-</html> -->
+</html> 
