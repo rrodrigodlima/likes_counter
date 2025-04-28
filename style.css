@@ -25,9 +25,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  background: linear-gradient(270deg, #00f0ff, #ff00c8, #00ff88, #00f0ff);
-  background-size: 600% 600%;
-  animation: shift-border 5s ease infinite;
+  background: #01ddfd; /* <-- agora é só essa cor */
   z-index: 0;
   border-radius: 10px;
   transition: width 0.4s ease-in-out;
@@ -48,17 +46,23 @@ body {
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
+  text-shadow: 2px 2px 4px #000000;
 }
+
 
 .count {
   color: #ffffff;
   font-size: 24px;
+    text-shadow: 2px 2px 4px #000000;
+
   font-family: "Luckiest Guy";
 }
 
 .meta {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 24px; 
+    text-shadow: 2px 2px 4px #000000;
+
   font-family: "Luckiest Guy";
 }
 
@@ -67,16 +71,13 @@ body {
   inset: 0;
   padding: 2px;
   border-radius: 12px;
-  background: linear-gradient(270deg, #00f0ff, #ff00c8, #00ff88, #00f0ff);
-  background-size: 600% 600%;
+  background: #01ddfd; /* <-- agora é só essa cor */
   z-index: 2;
   pointer-events: none;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
-
-  animation: shift-border 5s ease infinite;
 }
 
 @keyframes shift-border {

@@ -1,11 +1,11 @@
-const API_KEY = 'AIzaSyB34hJD_bSwgILsK8lgdVJuaPITN7yIW2g'; // Substitua pela sua chave
+const API_KEY = 'AIzaSyCaduz-39bx3C3TV8Tgs6l-f0tFuqAox-s'; // Substitua pela sua chave
 const likesElement = document.getElementById('likes');
 const metaElement = document.getElementById('meta');
 const progressBar = document.getElementById('progress-bar');
 
-let meta = 50;
+let meta = 30;
 let likes = 0;
-const incremento = 50;
+const incremento = 30;
 let intervalId = null;
 
 function getVideoIdFromURL() {
