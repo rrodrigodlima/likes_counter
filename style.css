@@ -47,7 +47,12 @@ body {
   font-size: 18px;
   font-weight: 600;
   text-shadow: 2px 2px 4px #000000;
+  white-space: nowrap; /* <-- Impede quebra de linha */
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
+
 
 
 .count {
