@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyCaduz-39bx3C3TV8Tgs6l-f0tFuqAox-s'; // Substitua pela sua chave
+const API_KEY = 'AIzaSyDnRJvQu6g0YZIv0cXTN2rYADEIBO9s1aM'; // Substitua pela sua chave
 const likesElement = document.getElementById('likes');
 const metaElement = document.getElementById('meta');
 const progressBar = document.getElementById('progress-bar');
