@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyDnRJvQu6g0YZIv0cXTN2rYADEIBO9s1aM';
+const API_KEY = 'AIzaSyB34hJD_bSwgILsK8lgdVJuaPITN7yIW2g';
 const CHANNEL_ID = 'UCDROwiV1r1o20W892Fq6kTQ';
 
 const subsElement = document.getElementById('subscribers');
@@ -6,29 +6,37 @@ const metaElement = document.getElementById('sub-meta');
 const progressBar = document.getElementById('progress-bar');
 
 let meta = null;
+let base = null;
 
 async function fetchSubscribers() {
   try {
     const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`);
     const data = await res.json();
 
+    if (!data.items || data.items.length === 0 || !data.items[0].statistics) {
+      throw new Error('Resposta da API inválida');
+    }
+
     const subs = parseInt(data.items[0].statistics.subscriberCount, 10);
     subsElement.textContent = subs;
 
-    // Define a meta igual ao número atual de inscritos na primeira chamada
-    if (meta === null) {
-      meta = subs;
+    if (meta === null || base === null) {
+      meta = subs + 50;
+      base = subs;
     }
 
     metaElement.textContent = meta;
 
-    const progress = Math.min(subs / meta, 1) * 100;
+    const progress = Math.min((subs - base) / (meta - base), 1) * 100;
     progressBar.style.width = `${progress}%`;
 
     if (subs >= meta) {
-      meta += 50; // Aumenta a meta em 50
+      // Atualiza a base e a meta
+      base = meta;
+      meta += 50;
       metaElement.textContent = meta;
 
+      // Animações
       subsElement.classList.add('pop-animation');
       metaElement.classList.add('pulse-animation');
       progressBar.classList.add('pulse-bar');
@@ -46,5 +54,5 @@ async function fetchSubscribers() {
   }
 }
 
-setInterval(fetchSubscribers, 30000); // Atualiza a cada 30 segundos
-fetchSubscribers(); // Chamada inicial
+setInterval(fetchSubscribers, 30000);
+fetchSubscribers();
