@@ -6,7 +6,6 @@ const metaElement = document.getElementById('sub-meta');
 const progressBar = document.getElementById('progress-bar');
 
 let meta = null;
-let base = null;
 
 async function fetchSubscribers() {
   try {
@@ -20,23 +19,22 @@ async function fetchSubscribers() {
     const subs = parseInt(data.items[0].statistics.subscriberCount, 10);
     subsElement.textContent = subs;
 
-    if (meta === null || base === null) {
+    // Define a meta inicial como 50 a mais que o valor atual
+    if (meta === null) {
       meta = subs + 50;
-      base = subs;
     }
 
     metaElement.textContent = meta;
 
-    const progress = Math.min((subs - base) / (meta - base), 1) * 100;
+    // Calcula o progresso com base na meta total
+    const progress = Math.min(subs / meta, 1) * 100;
     progressBar.style.width = `${progress}%`;
 
+    // Se a meta for batida, apenas adiciona +50 na meta
     if (subs >= meta) {
-      // Atualiza a base e a meta
-      base = meta;
       meta += 50;
       metaElement.textContent = meta;
 
-      // Animações
       subsElement.classList.add('pop-animation');
       metaElement.classList.add('pulse-animation');
       progressBar.classList.add('pulse-bar');
