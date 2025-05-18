@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyB34hJD_bSwgILsK8lgdVJuaPITN7yIW2g';
+const API_KEY = 'AIzaSyALNCQx6H5rEQlFocnDBRwkhKKk2Bbu4do';
 const CHANNEL_ID = 'UCDROwiV1r1o20W892Fq6kTQ';
 
 const subsElement = document.getElementById('subscribers');
