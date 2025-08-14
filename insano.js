@@ -1,5 +1,5 @@
 const API_KEY = 'AIzaSyDsWlWYIgCWc7SN4SZkJIhswcmWXN-l94M';
-const CHANNEL_ID = 'UCWWdydWm_hEHnMr93q5_atg';
+const CHANNEL_ID = 'UCOfrxAzYNSTJ1iNDal2Qw7A';
 
 const subsElement = document.getElementById('subscribers');
 const metaElement = document.getElementById('sub-meta');
