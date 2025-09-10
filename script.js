@@ -3,9 +3,9 @@ const likesElement = document.getElementById('likes');
 const metaElement = document.getElementById('meta');
 const progressBar = document.getElementById('progress-bar');
 
-let meta = 30;
+let meta = 50;
 let likes = 0;
-const incremento = 30;
+const incremento = 10;
 let intervalId = null;
 
 function getVideoIdFromURL() {
