@@ -74,7 +74,7 @@ body {
 .animated-outline {
   position: absolute;
   inset: 0;
-  padding: 2px;
+  padding: 3px;
 /*   border-radius: 12px; */
   background: #01ddfd; /* <-- agora é só essa cor */
   z-index: 2;
