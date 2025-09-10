@@ -27,7 +27,7 @@ body {
   height: 100%;
   background: #01ddfd; /* <-- agora é só essa cor */
   z-index: 0;
-  border-radius: 10px;
+/*   border-radius: 10px; */
   transition: width 0.4s ease-in-out;
 }
 
